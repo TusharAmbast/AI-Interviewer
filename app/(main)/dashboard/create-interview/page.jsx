@@ -8,7 +8,7 @@ import FormContainer from './FormContainer';
 import QuestionsList from './_components/QuestionsList';
 import { toast } from 'sonner';
 import InterviewLink from './_components/InterviewLink';
-import interview_id from '@/app/(main)
+import interview_id from '@/app/(main)';
 
 function CreateInterview() {
     const route = useRouter();
