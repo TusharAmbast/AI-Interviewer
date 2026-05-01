@@ -2,10 +2,13 @@
 import { UserDetailContext } from '@/Context/userDetailContext';
 import { supabase } from '@/services/supabaseClient'
 import React, {useState, useEffect, useContext } from 'react'
+import { InterviewDataContext } from '@/Context/InterviewDataContext';
 
 function Provider({ children }) {
 
     const [user,setUser] = useState();
+    const [interviewInfo, setInterviewInfo] = useState(null);
+    
     useEffect(() => {
         // This listener waits for the actual "SIGNED_IN" event
         const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
@@ -62,7 +65,9 @@ function Provider({ children }) {
 
     return( 
         <UserDetailContext.Provider value={{ user, setUser }}>
-            <div>{children}</div>
+            <InterviewDataContext.Provider value={{ interviewInfo, setInterviewInfo }}> {/* ← add */}
+                <div>{children}</div>
+            </InterviewDataContext.Provider>
         </UserDetailContext.Provider>
     )
 }
