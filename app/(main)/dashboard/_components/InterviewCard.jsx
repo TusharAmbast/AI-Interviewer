@@ -19,24 +19,24 @@ function InterviewCard( { interview, viewDetails = false } ) {
   }
 
   return (
-    <div className='p-5 bg-white rounded-lg border'>
-        <div className='flex  items-center justify-between'>
+    <div className='p-5 bg-card rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-300'>
+        <div className='flex items-center justify-between'>
             <div className='h-[30px] w-[30px] bg-primary rounded-full'></div>
-            <h2>{moment(interview?.created_at).format('DD MMM YYYY')}</h2>
+            <h2 className="text-muted-foreground">{moment(interview?.created_at).format('DD MMM YYYY')}</h2>
         </div>
-        <h2 className='font-bold text-lg mt-2'>{interview?.jobTitle}</h2>
-        <p className='text-gray-500 mt-2 flex justify-between'>{interview?.interviewDuration}
+        <h2 className='font-bold text-lg mt-2 text-card-foreground'>{interview?.jobTitle}</h2>
+        <p className='text-muted-foreground mt-2 flex justify-between'>{interview?.interviewDuration}
         <span className='gap-2'>{interview?.['interview-feedback']?.length} Candidates</span></p>
         { !viewDetails?
             <div className='flex items-center gap-5 mt-4 w-full'>
-                <Button variant="outline" size="sm" onClick={copyLink}>
+                <Button variant="outline" size="sm" onClick={copyLink} className="border-border text-foreground hover:bg-muted/50">
                     <Copy /> Copy link
                 </Button>
-                <Button onClick={onsend}> <Send /> Send</Button>
+                <Button onClick={onsend} className="bg-primary text-primary-foreground hover:bg-primary/90"> <Send /> Send</Button>
             </div>
             :
             <Link href={`/scheduled-interview/${interview?.interview_id}/details`} >
-                <Button className="mt-5 w-full bg-primary text-white hover:bg-primary/90">View Detail <ArrowRight /></Button>
+                <Button className="mt-5 w-full bg-primary text-primary-foreground hover:bg-primary/90">View Detail <ArrowRight /></Button>
             </Link>
         }
     </div>
