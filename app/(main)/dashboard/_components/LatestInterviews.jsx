@@ -32,9 +32,9 @@ function LatestInterviews() {
 
     return (
         <div className='my-5 flex flex-col gap-5 items-center justify-center rounded-lg p-5'>
-            <Button> + Create New Interview</Button>
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90"> + Create New Interview</Button>
             
-            <h1 className='font-bold text-2xl mt-4'>Previously Created Interviews</h1>
+            <h1 className='font-bold text-2xl mt-4 text-foreground'>Previously Created Interviews</h1>
             {/* Conditional Rendering: Check if array has items */}
             {interviewList && interviewList.length > 0 ? (
                 // If TRUE: Show the grid of interview cards
@@ -45,9 +45,9 @@ function LatestInterviews() {
                 </div>
             ) : (
                 // If FALSE: Show the empty state message
-                <div className='flex items-center justify-center gap-4 mt-5 p-10'>
-                    <Video className='p-3 text-primary bg-gray-100 rounded-lg h-12 w-12' />
-                    <p className='text-gray-500'>No interviews created yet. Start by creating a new interview session.</p>
+                <div className='flex items-center justify-center gap-4 mt-5 p-10 bg-card rounded-lg border border-border w-full'>
+                    <Video className='p-3 text-primary bg-primary/10 rounded-lg h-12 w-12' />
+                    <p className='text-muted-foreground'>No interviews created yet. Start by creating a new interview session.</p>
                 </div>
             )}
         </div>
