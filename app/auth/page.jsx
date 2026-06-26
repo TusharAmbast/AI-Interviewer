@@ -20,24 +20,24 @@ function login() {
 
 
   return (
-    <div className='flex flex-col items-center'>
-      <div className='flex flex-col items-center justify-center h-screen'>
-        <div className='flex flex-col items-center justify-center bg-gray-100 rounded-2xl shadow-lg p-10'cl>
-          <Image src="/Logo.png" alt="logo" 
+    <div className='flex flex-col items-center bg-background min-h-screen text-foreground'>
+      <div className='flex flex-col items-center justify-center h-screen w-full px-4'>
+        <div className='flex flex-col items-center justify-center bg-card border border-border rounded-2xl shadow-xl p-10 max-w-md w-full'>
+          <Image src="/logo.png" alt="logo" 
           width={400} 
           height={200}
           className="w-[160px]" />
-          <div className="flex flex-col items-center justify-center bg-white rounded-2xl shadow-lg p-8 mt-5">
+          <div className="flex flex-col items-center justify-center bg-muted/30 rounded-xl border border-border p-8 mt-8 w-full">
             <Image src="/login.png" alt="login" 
             width={400} 
             height={200}
-            className="w-[400px] h-[250px]" />
+            className="w-full max-w-[250px] object-contain drop-shadow-md" />
 
-            <h2 className="text-2xl font-bold text-center mt-5">Welcome to AICruiter App</h2>
-            <p className="text-gray-600 text-center mt-3">Please Sign up to continue.</p>
-            <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+            <h2 className="text-2xl font-bold text-center mt-8 text-foreground">Welcome to AICruiter</h2>
+            <p className="text-muted-foreground text-center mt-3 mb-6">Please Sign up to continue.</p>
+            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-6 px-4 rounded-xl shadow-lg transition-all"
             onClick={signinwithgoogle}>
-              Sign Up
+              Sign In with Google
             </Button>
           </div>
         </div>
