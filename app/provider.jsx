@@ -3,6 +3,7 @@ import { UserDetailContext } from '@/Context/userDetailContext';
 import { supabase } from '@/services/supabaseClient'
 import React, {useState, useEffect, useContext } from 'react'
 import { InterviewDataContext } from '@/Context/InterviewDataContext';
+import { ThemeProvider } from '@/Context/ThemeContext';
 
 function Provider({ children }) {
 
@@ -64,11 +65,13 @@ function Provider({ children }) {
     }
 
     return( 
-        <UserDetailContext.Provider value={{ user, setUser }}>
-            <InterviewDataContext.Provider value={{ interviewInfo, setInterviewInfo }}> {/* ← add */}
-                <div>{children}</div>
-            </InterviewDataContext.Provider>
-        </UserDetailContext.Provider>
+        <ThemeProvider>
+            <UserDetailContext.Provider value={{ user, setUser }}>
+                <InterviewDataContext.Provider value={{ interviewInfo, setInterviewInfo }}> {/* ← add */}
+                    <div>{children}</div>
+                </InterviewDataContext.Provider>
+            </UserDetailContext.Provider>
+        </ThemeProvider>
     )
 }
 
