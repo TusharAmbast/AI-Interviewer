@@ -85,10 +85,10 @@ function QuestionsList({ formData, GoToNext, onInterviewCreated }) {
     return (
         <div>
             {loading && (
-                <div className='mt-5 p-5 bg-blue-50 rounded-xl border border-gray-100 border-primary flex items-center gap-3'>
-                    <LoaderIcon className='animate-spin' />
+                <div className='mt-5 p-5 bg-card rounded-xl border border-border flex items-center gap-3'>
+                    <LoaderIcon className='animate-spin text-primary' />
                     <div>
-                        <h2 className='font-medium'>Generating Questions...</h2>
+                        <h2 className='font-medium text-foreground'>Generating Questions...</h2>
                         <p className='text-primary'>This may take a moment. Please wait.</p>
                     </div>
                 </div>
@@ -104,11 +104,11 @@ function QuestionsList({ formData, GoToNext, onInterviewCreated }) {
                 <div className='flex justify-end mt-5'>
                     <button
                         type='button'
-                        className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600'
+                        className='bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 flex items-center gap-2 transition-colors'
                         onClick={onFinish}
                         disabled={saveLoading}
                     >
-                        {saveLoading && <Loader2 className='animate-spin' />} Finish
+                        {saveLoading && <Loader2 className='animate-spin w-4 h-4' />} Finish
                     </button>
                 </div>
             )}
